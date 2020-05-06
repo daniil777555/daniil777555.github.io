@@ -199,7 +199,7 @@ a{
 }
 
 .menu-link{
-    margin-right: 30px;
+    margin: 0 27px 0 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 300;
@@ -1296,7 +1296,7 @@ i.arrow-control:before{
 .date-month{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 6px 12px;
+    padding: 6px 13px;
     background-color: #252525;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
