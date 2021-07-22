@@ -59,7 +59,7 @@
             },
 
             declOfNum(num) {  
-                let numLength = num.toString()[num.toString.length - 1];
+                let numLength = num.toString()[num.toString().length - 1];
 
                 if((numLength == 2 || numLength == 6 || numLength == 7 || numLength == 8) &&
                     (num !== 12 || num !== 16 || num !== 17 || num !== 18)) 
