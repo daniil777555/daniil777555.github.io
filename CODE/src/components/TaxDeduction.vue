@@ -61,8 +61,11 @@
             declOfNum(num) {  
                 let numLength = num.toString()[num.toString().length - 1];
 
+                console.log((numLength == 2 || numLength == 6 || numLength == 7 || numLength == 8) &&
+                    (num !== 12 && num !== 16 && num !== 17 && num !== 18), num, numLength);
+
                 if((numLength == 2 || numLength == 6 || numLength == 7 || numLength == 8) &&
-                    (num !== 12 || num !== 16 || num !== 17 || num !== 18)) 
+                    (num !== 12 && num !== 16 && num !== 17 && num !== 18)) 
                         return this.textForms[1]; 
 
                 if(numLength == 3 && num !== 13) return this.textForms[2];
@@ -339,6 +342,7 @@
         .txd{
             padding: 22px 22px 16px 16px;
             border-radius: 0;
+            min-height: 100vh;
         }
 
         .svg-close{
