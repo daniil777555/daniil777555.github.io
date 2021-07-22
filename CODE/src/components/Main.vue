@@ -1,6 +1,6 @@
 <template>
     <div class="container" :class="{'gray-container': isOpen}">
-        <button v-on:click="isOpen = !isOpen" class="btn-tax">Налоговый вычет</button>
+        <button v-on:click="isOpen = !isOpen" v-if="!isOpen" class="btn-tax">Налоговый вычет</button>
         <TXD v-show="isOpen" v-on:isOpen="isOpen = $event"/>
     </div>
 </template>
@@ -18,23 +18,22 @@ export default {
             isOpen: false
         }
     },
-
-    methods:{
-
-    }
 }
 </script>
 
 <style scope>
 
     .container{
-        height: 100vh;
+        min-height: 100vh;
+        height:max-content;
         display: flex;
         justify-content: center;
         align-items: center;
         background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
         box-shadow: 0px -0.11px 16.9495px rgba(183, 187, 225, 0.33);
         border-radius: 0px;
+        padding: 120px 0;
+        box-sizing: border-box;
     }
 
     .gray-container{
@@ -62,6 +61,10 @@ export default {
     }
 
     @media screen and (max-width: 320px) {
+        .container{
+            padding: 0;
+        }
+
         .btn-tax{
             font-size: 12px;
             line-height: 16px;

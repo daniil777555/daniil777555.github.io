@@ -82,7 +82,6 @@
 <style scope>
 
     .txd{
-        position: absolute;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -340,7 +339,6 @@
     @media screen and (max-width: 320px) {
         .txd{
             padding: 22px 22px 16px 16px;
-            height: 100vh;
             border-radius: 0;
         }
 
