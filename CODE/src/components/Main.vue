@@ -36,7 +36,7 @@ export default {
             isTableOpen: false,
             successOpen: false,
             startTime: null,
-            quantityPeople: null
+            quantityPeople: 20
         }
     },
 
