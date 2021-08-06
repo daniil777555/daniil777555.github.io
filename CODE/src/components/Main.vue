@@ -1,75 +1,107 @@
 <template>
-    <div class="container" :class="{'gray-container': isOpen}">
-        <button v-on:click="isOpen = !isOpen" v-if="!isOpen" class="btn-tax">Налоговый вычет</button>
-        <TXD v-show="isOpen" v-on:isOpen="isOpen = $event"/>
+    <div class="container">
+        <header class="header">
+            <h1 class="heading">Sorting Training System</h1>
+            <button class="btn btn-init" 
+            v-on:click="isModalOpen = true; isTableOpen = false">
+                Start sorting!
+            </button>
+        </header>
+        <ModalW v-if="isModalOpen" v-model="quantityPeople"
+            v-on:startSorting="startSorting" v-on:isModalOpen="isModalOpen = $event"/>
+
+        <Table v-if="isTableOpen" v-on:successOpen="successOpen = $event"
+            :quantityPeople="quantityPeople"/>
+
+        <SuccessModal v-if="successOpen" v-on:successOpen="successOpen = $event" :startTime="startTime"/>
     </div>
 </template>
 
 <script>
-import TXD from './TaxDeduction.vue'
+import ModalW from './ModalW.vue';
+import Table from './Table.vue'
+import SuccessModal from "./SuccessModal.vue"
 
 export default {
+    name: 'Main',
     components: {
-        TXD
-    },
+		ModalW,
+        Table,
+        SuccessModal
+	},
 
     data(){
         return{
-            isOpen: false
+            isModalOpen: false,
+            isTableOpen: false,
+            successOpen: false,
+            startTime: null,
+            quantityPeople: null
         }
     },
+
+    methods:{
+        startSorting(){
+            this.isModalOpen = false;
+            this.isTableOpen = true;
+            this.startTime =  new Date().getTime();
+        },
+    },
+
+    watch:{
+        quantityPeople(value){
+            if(value > 100) return this.quantityPeople = 100
+            else if(value < 20) return this.quantityPeople = 20
+            return this.quantityPeople = +value
+        }
+    }
 }
 </script>
 
-<style scope>
-
+<style>
     .container{
-        min-height: 100vh;
-        height:max-content;
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header{
+        padding: 30px 0 0 0;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
-        box-shadow: 0px -0.11px 16.9495px rgba(183, 187, 225, 0.33);
-        border-radius: 0px;
-        padding: 120px 0;
-        box-sizing: border-box;
+        margin: 0 0 36px 0;
     }
 
-    .gray-container{
-        background: rgba(0, 0, 0, 0.3);
+    .heading{
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 37px;
     }
-    
-    .btn-tax{
+
+    .btn{
         cursor: pointer;
-        border: 1px solid #FFFFFF;
-        box-sizing: border-box;
-        filter: drop-shadow(0px 0px 44px #CFDAE7);
-        border-radius: 6px;
-        font-weight: 400;
-        background: none;
+        background: #FF8D00;
+        border-radius: 5px;
         color: #fff;
-        line-height: 24px;
-        padding: 16px 32px;
-        font-size: 16px;
+        outline: none;
+        border: none;
     }
 
-    .btn-tax:hover{
+    .btn:hover{
         background: #fff;
-        color: #000;
-        filter: none;
+        color: #FF8D00;
     }
 
-    @media screen and (max-width: 320px) {
-        .container{
-            padding: 0;
-        }
-
-        .btn-tax{
-            font-size: 12px;
-            line-height: 16px;
-            padding: 12px 24px;
-        }
+    .btn:active{
+        background: rgb(241, 241, 241);
+        color: #FF8D00;
     }
 
+    .btn-init{
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 15px 35px;
+    }
 </style>

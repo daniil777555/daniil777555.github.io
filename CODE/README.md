@@ -1,4 +1,4 @@
-# tech-task
+# code
 
 ## Project setup
 ```

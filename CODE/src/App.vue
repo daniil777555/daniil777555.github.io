@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Main></Main>
+        <Main />
     </div>
 </template>
 
@@ -8,17 +8,34 @@
 import Main from './components/Main.vue'
 
 export default {
-    components: {
-        Main
-    }
+  	name: 'App',
+	components: {
+		Main
+	},
+
 }
 </script>
 
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;;
-        font-style: normal;
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	#app {
+		font-family: Avenir, Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: #000;
+		background: #e4e4e4;
+		min-height: 100vh;
+	}
+
+	.cover{
+		top: 0;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        z-index: 2;
     }
 </style>
