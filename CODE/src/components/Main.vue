@@ -8,8 +8,8 @@
             </button>
         </header>
         <transition name="fade">
-        <ModalW v-if="isModalOpen" v-model="quantityPeople"
-            v-on:startSorting="startSorting" v-on:isModalOpen="isModalOpen = $event"/>
+            <ModalW v-if="isModalOpen" v-model="quantityPeople"
+                v-on:startSorting="startSorting" v-on:isModalOpen="isModalOpen = $event"/>
         </transition>
 
         <Table v-if="isTableOpen" v-on:successOpen="successOpen = $event"
