@@ -1,0 +1,1 @@
+import{a as n,h as s,E as _,o as p,j as r}from"./entry.5af20150.js";const d=n({__name:"AppButton",emits:["click"],setup(a){return(e,t)=>(p(),s("button",{class:"btn border-2 border-slate-50 rounded-md text-base py-1 px-2 outline-none",onClick:t[0]||(t[0]=o=>e.$emit("click",o))},[_(e.$slots,"default",{},void 0,!0)]))}});const l=r(d,[["__scopeId","data-v-019d9d63"]]);export{l as _};
